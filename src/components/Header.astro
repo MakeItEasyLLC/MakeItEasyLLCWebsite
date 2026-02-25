@@ -1,30 +1,28 @@
 ---
-import Logo from '../components/Logo.astro';
-
 const navItems = [
     { linkText: 'Home', href: '/' },
-    { linkText: 'Revalidation', href: '/revalidation' },
-    { linkText: 'Image CDN', href: '/image-cdn' },
-    { linkText: 'Edge Function', href: '/edge' },
-    { linkText: 'Blobs', href: '/blobs' }
+    { linkText: 'Services', href: '/#services' },
+    { linkText: 'About', href: '/#about' },
+    { linkText: 'Contact', href: '/#contact' },
 ];
 ---
 
-<nav class="flex flex-wrap items-center gap-4 pt-6 pb-16 sm:pt-12 sm:pb-24">
-    <a href="/">
-        <Logo />
-    </a>
-    {
-        !!navItems?.length && (
-            <ul class="flex flex-wrap gap-x-4 gap-y-1">
-                {navItems.map((item) => (
-                    <li>
-                        <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2">
-                            {item.linkText}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        )
-    }
-</nav>
+<header class="sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-surface-lighter/50">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+        <a href="/" class="flex items-center gap-1 no-underline text-text font-bold text-xl">
+            <span class="text-primary">Make</span><span>It</span><span class="text-accent">Easy</span>
+        </a>
+        <ul class="flex items-center gap-1 sm:gap-2">
+            {navItems.map((item) => (
+                <li>
+                    <a
+                        href={item.href}
+                        class="inline-block px-3 py-2 text-sm text-text-muted no-underline hover:text-primary transition-colors rounded-full hover:bg-surface-light"
+                    >
+                        {item.linkText}
+                    </a>
+                </li>
+            ))}
+        </ul>
+    </nav>
+</header>
