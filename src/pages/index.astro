@@ -1,19 +1,209 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
 
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
+const services = [
+    {
+        title: 'Mobile App Development',
+        description: 'Beautifully crafted mobile apps for iOS and Android that your users will adore.',
+        icon: '📱',
+    },
+    {
+        title: 'Web Application Development',
+        description: 'Gorgeous, fast web apps designed with care and attention to every little detail.',
+        icon: '✨',
+    },
+    {
+        title: 'UI/UX Design',
+        description: 'Delightful interfaces and smooth experiences that make people smile.',
+        icon: '🎨',
+    },
+    {
+        title: 'Cloud & DevOps',
+        description: 'Reliable cloud setups so your product stays happy and running smoothly.',
+        icon: '☁️',
+    },
+    {
+        title: 'API Development',
+        description: 'Clean, well-organized APIs that connect everything seamlessly behind the scenes.',
+        icon: '🔗',
+    },
+    {
+        title: 'Consulting & Strategy',
+        description: 'Friendly guidance to help you pick the perfect tech and plan your dream product.',
+        icon: '💡',
+    },
+];
 
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
+const processSteps = [
+    { step: '01', title: 'Chat', description: 'We get to know your vision, your users, and what makes your idea special.' },
+    { step: '02', title: 'Design', description: 'We sketch out beautiful designs and prototypes you\'ll love.' },
+    { step: '03', title: 'Create', description: 'Our team brings your product to life with care and quality.' },
+    { step: '04', title: 'Launch', description: 'We help you launch with confidence and cheer you on!' },
+];
 ---
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Home">
+    <!-- Hero Section -->
+    <section class="section px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto text-center relative">
+            <p class="text-primary font-semibold mb-4 tracking-wide uppercase text-sm">MakeItEasy LLC</p>
+            <h1 class="mb-6 text-text">
+                We Create Playful Apps &<br />
+                <span class="text-primary">Cute Products You'll Love</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-text-muted max-w-2xl mx-auto mb-10">
+                From sweet little ideas to full-blown products, we bring your vision to life
+                with thoughtful design, clean code, and a whole lot of heart.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#contact" class="btn btn-primary btn-lg no-underline">Let's Talk</a>
+                <a href="#services" class="btn btn-outline btn-lg no-underline">See What We Do</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="text-primary font-semibold mb-2 tracking-wide uppercase text-sm">What We Do</p>
+                <h2 class="text-text">Our Services</h2>
+                <p class="mt-4 text-text-muted max-w-xl mx-auto">
+                    Everything you need to turn your product idea into something wonderful.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {services.map((service) => (
+                    <div class="card">
+                        <div class="text-4xl mb-4">{service.icon}</div>
+                        <h3 class="text-lg font-semibold text-text mb-2">{service.title}</h3>
+                        <p class="text-text-muted text-sm">{service.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="text-primary font-semibold mb-2 tracking-wide uppercase text-sm">How We Work</p>
+                <h2 class="text-text">Our Process</h2>
+                <p class="mt-4 text-text-muted max-w-xl mx-auto">
+                    A friendly, simple approach to bringing your ideas to life.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {processSteps.map((item) => (
+                    <div class="text-center">
+                        <div class="text-5xl font-bold text-primary/20 mb-2">{item.step}</div>
+                        <h3 class="text-lg font-semibold text-text mb-2">{item.title}</h3>
+                        <p class="text-text-muted text-sm">{item.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-primary font-semibold mb-2 tracking-wide uppercase text-sm">About Us</p>
+                    <h2 class="text-text mb-6">Making Cute Products With Heart</h2>
+                    <p class="text-text-muted mb-4">
+                        MakeItEasy LLC is a product studio that loves creating playful, charming apps and websites.
+                        We believe great products should feel as good as they look, and that technology should spark joy.
+                    </p>
+                    <p class="text-text-muted mb-6">
+                        Our team blends creativity with technical know-how to bring your sweetest ideas to life.
+                        Whether it's a fun mobile app, an adorable web experience, or a full product line, we're here for it!
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-text-muted">
+                            <span class="text-primary font-bold">&#10003;</span> Detail-oriented & quality-focused
+                        </li>
+                        <li class="flex items-center gap-3 text-text-muted">
+                            <span class="text-primary font-bold">&#10003;</span> Creative & playful design approach
+                        </li>
+                        <li class="flex items-center gap-3 text-text-muted">
+                            <span class="text-primary font-bold">&#10003;</span> Open & friendly communication
+                        </li>
+                        <li class="flex items-center gap-3 text-text-muted">
+                            <span class="text-primary font-bold">&#10003;</span> Ongoing support & updates
+                        </li>
+                    </ul>
+                </div>
+                <div class="card text-center py-16 bg-gradient-to-br from-surface-light to-white">
+                    <div class="text-6xl font-bold text-primary mb-2">100%</div>
+                    <p class="text-text-muted text-lg">Made with love</p>
+                    <div class="mt-8 grid grid-cols-2 gap-6">
+                        <div>
+                            <div class="text-3xl font-bold text-text">Apps</div>
+                            <p class="text-text-muted text-sm mt-1">Mobile & Desktop</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-text">Web</div>
+                            <p class="text-text-muted text-sm mt-1">Sites & Products</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section px-6">
+        <div class="max-w-2xl mx-auto text-center">
+            <p class="text-primary font-semibold mb-2 tracking-wide uppercase text-sm">Say Hello!</p>
+            <h2 class="text-text mb-4">Let's Create Something Adorable</h2>
+            <p class="text-text-muted mb-10">
+                Got a cute product idea? We'd love to hear all about it! Drop us a message and let's make it happen.
+            </p>
+            <form name="contact" method="POST" data-netlify="true" class="text-left space-y-6">
+                <input type="hidden" name="form-name" value="contact" />
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-text-muted mb-2">Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                            class="w-full px-4 py-3 bg-white border border-surface-lighter rounded-xl text-text placeholder-text-muted focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                            placeholder="Your name"
+                        />
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-text-muted mb-2">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            class="w-full px-4 py-3 bg-white border border-surface-lighter rounded-xl text-text placeholder-text-muted focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                            placeholder="your@email.com"
+                        />
+                    </div>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-text-muted mb-2">Message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        required
+                        class="w-full px-4 py-3 bg-white border border-surface-lighter rounded-xl text-text placeholder-text-muted focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+                        placeholder="Tell us about your cute product idea..."
+                    ></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
 </Layout>

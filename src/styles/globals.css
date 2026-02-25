@@ -2,77 +2,72 @@
 
 @theme {
     --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-primary: #f67280;
-    --color-primary-content: #101828;
-    --color-complementary: #355c7d;
-    --background-image-noise: linear-gradient(
-            to bottom,
-            color-mix(in oklab, var(--color-gray-950) 0%, transparent),
-            color-mix(in oklab, var(--color-gray-950) 100%, transparent)
-        ),
-        url('/images/noise.png');
+    --color-primary: #e879a0;
+    --color-primary-light: #f0a3bc;
+    --color-primary-dark: #d45d85;
+    --color-accent: #b48edb;
+    --color-accent-light: #d4bfef;
+    --color-mint: #7ecdb5;
+    --color-peach: #f7c5a8;
+    --color-surface: #fffaf8;
+    --color-surface-light: #fff0ec;
+    --color-surface-lighter: #fde4dc;
+    --color-text: #4a3347;
+    --color-text-muted: #8a7088;
 }
 
 @layer base {
     h1 {
-        @apply text-4xl font-bold tracking-tight sm:text-5xl;
+        @apply text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl;
     }
 
     h2 {
-        @apply text-2xl font-bold sm:text-3xl;
+        @apply text-2xl font-bold sm:text-3xl lg:text-4xl;
+    }
+
+    h3 {
+        @apply text-xl font-semibold sm:text-2xl;
     }
 
     a:not(.btn) {
-        @apply underline transition hover:opacity-80;
-    }
-
-    pre {
-        @apply p-6 overflow-x-auto rounded-lg;
-    }
-
-    :not(pre) > code {
-        @apply px-1 py-0.5 font-mono rounded bg-gray-900 text-primary;
-        font-size: 0.9em;
+        @apply transition hover:opacity-80;
     }
 }
 
 @layer components {
-    .markdown {
-        > * {
-            @apply my-6;
-        }
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 cursor-pointer text-center font-semibold no-underline transition-all rounded-full;
+        padding: var(--btn-py, 0.75rem) var(--btn-px, 1.75rem);
+        font-size: var(--btn-font-size, 0.875rem);
+    }
 
-        :where(h1, h2) {
-            @apply mt-12 mb-6;
-        }
+    .btn-primary {
+        @apply bg-primary text-white shadow-md shadow-primary/25;
 
-        > :first-child {
-            @apply mt-0;
-        }
-
-        > :last-child {
-            @apply mb-0;
+        &:hover {
+            @apply bg-primary-dark shadow-lg shadow-primary/30 -translate-y-0.5;
         }
     }
 
-    .btn {
-        @apply inline-flex items-center justify-center gap-2 bg-primary text-primary-content cursor-pointer text-center font-semibold no-underline transition-colors;
-        padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
-        font-size: var(--btn-font-size, 0.875rem);
-        border-radius: var(--btn-border-radius, 0.25rem);
+    .btn-outline {
+        @apply border-2 border-primary text-primary bg-transparent;
 
         &:hover {
-            @apply bg-primary/85;
-        }
-
-        &:disabled {
-            @apply text-gray-400 bg-gray-700;
+            @apply bg-primary text-white shadow-md shadow-primary/25 -translate-y-0.5;
         }
     }
 
     .btn-lg {
         --btn-font-size: 1.125rem;
-        --btn-px: 1.5rem;
-        --btn-py: 1.125rem;
+        --btn-px: 2.25rem;
+        --btn-py: 1rem;
+    }
+
+    .section {
+        @apply py-16 sm:py-24;
+    }
+
+    .card {
+        @apply bg-white rounded-3xl p-8 border border-surface-lighter/80 transition-all shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1;
     }
 }
